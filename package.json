@@ -1,0 +1,24 @@
+{
+  "name": "tryreact",
+  "version": "1.0.0",
+  "description": "trying react",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel index.html"
+  },
+  "author": "tejas",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "parcel": "^2.13.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.28.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
