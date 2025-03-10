@@ -10,28 +10,28 @@ const VenueDetails = () => {
   const [Amenities, setAmenities] = useState([]);
   let [vegAccordianData, setvegAccordianData] = useState([]);
   const [accordianValue, setaccordianValue] = useState("");
-
   const { venueId } = useParams();
+
 
   useEffect(() => {
     fetchVenueDetailsData();
   }, []);
 
   const fetchVenueDetailsData = async () => {
-    const raw = await fetch(`${RawURL}/get-venue-details?venueId=${venueId}`);
+    const raw = await fetch(`${RawURL}/get-restaurant-details?restaurantId=${venueId}`);
     const jData = await raw.json();
     setDetails(jData.data);
 
     setAmenities(jData.data.amenities);
 
     setvegAccordianData(jData.data.packages);
+    console.log(jData);
   };
-  // console.log(vegAccordianData);
-
+  
   const onAccordianClick = (menueType) => {
     setaccordianValue(menueType);
   };
-  console.log(accordianValue);
+  // console.log(venueId);
 
   return (
     <>
@@ -101,7 +101,7 @@ const VenueDetails = () => {
         )}
         <div className="packages">
           {vegAccordianData.map((section) => {
-            console.log(section);
+            // console.log(section);
 
             return (
               <>

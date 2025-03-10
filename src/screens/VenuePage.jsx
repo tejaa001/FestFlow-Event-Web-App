@@ -18,14 +18,16 @@ const VenuePage = () => {
   }, [searchtext]);
 
   const fetchVenueData = async () => {
-    let Data = await fetch(`${RawURL}/get-all-venues`);
+    let Data = await fetch(`${RawURL}/get-all-restaurants`);
     let VenueData = await Data.json();
     SetVenueData(VenueData.data.rows);
     setFilterDataEvent(VenueData.data.rows);
+
+
   };
 
   const onCardClick = (venueId) => {
-    navigate(`/venue-detail/${venueId}`);
+    navigate(`/restaurant-detail/${venueId}`);
   };
 
   const VSeachItem = (text) => {
@@ -34,11 +36,15 @@ const VenuePage = () => {
     });
     setFilterDataEvent(filterData);
   };
+  // console.log("filterDataEvent",filterDataEvent);
 
   return (
     <>
       <div className="card-page">
-        { filterDataEvent.length==0? <div class="loader"></div> :  filterDataEvent.map((item) => {
+        {filterDataEvent.length == 0 ? <div class="loader"></div> : filterDataEvent.map((item) => {
+          // console.log(item.id);
+
+
           return (
             <VenueCard
               name={item.name}

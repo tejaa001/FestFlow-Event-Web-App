@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
-import { FaMapMarkerAlt, FaInfoCircle, FaPhone, FaBook, FaUser, FaUserPlus, FaSignOutAlt,FaCalendarAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaInfoCircle, FaPhone, FaBook, FaUser, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
 import { AuthContext } from "../contex/AuthContext";
 
 const Header = ({ onSearchClick }) => {
@@ -37,9 +37,8 @@ const Header = ({ onSearchClick }) => {
   };
   return (
     <div className="container">
+      <h2>OccasionVerse</h2>
       <div className="navabr-container">
-        <div className="item-list">
-          <p>FestFlow</p>
         <div className="search-bar">
           <input
             type="text"
@@ -52,21 +51,23 @@ const Header = ({ onSearchClick }) => {
             Search
           </span>
         </div>
+
+        <div className="item-list">
           <Link to={"/"}>
             <AiFillHome /> Home
           </Link>
           <Link to={"/Venue"}>
             <FaMapMarkerAlt /> Venue
           </Link>
-          <Link>
+          <a>
             <FaInfoCircle /> About
-          </Link>
-          <Link to={"/upcomingEvent"}>
-          <FaCalendarAlt /> Upcoming Bookings
-          </Link>
-          <Link>
+          </a>
+          <a>
+            <FaPhone /> Contact
+          </a>
+          <a>
             <FaBook /> My Booking
-          </Link>
+          </a>
           {isLogin ? (
             <div className="profile-dropdown">
               <span onClick={toggleDropdown} className="profile-link">

@@ -5,10 +5,15 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import VenuePage from "./src/screens/VenuePage";
 import Error from "./src/components/Error";
 import Header from "./src/components/Header";
+import Footer from "./src/components/Footer";
 import VenueDetails from "./src/components/VenueDetails";
 import { NetworkProvider } from "./src/contex/ConnectionContex";
 import HomeDetails from "./src/components/HomeDetails";
 import LoginPage from "./src/screens/LoginPage";
+import SignUp from "./src/screens/SignUp";
+import { AuthProvider } from "./src/contex/AuthContext";
+import Profile from "./src/screens/Profile";
+import UpComingEvent from "./src/screens/UpcomigEvents";
 
 const Div = document.querySelector(".root");
 const root = ReactDOM.createRoot(Div);
@@ -20,12 +25,12 @@ const RenderApp = () => {
   const onSearchClick = (str) => {
     setSeachtext(str);
   };
-  // console.log(mediaData);
   
   return (
     <>
       <Header onSearchClick={onSearchClick} />
       <Outlet context={{ searchtext,setMediaData,mediaData}} />
+      <Footer/>
     </>
   );
 };
@@ -47,7 +52,7 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "/venue-detail/:venueId",
+        path: "/restaurant-detail/:venueId",
         element: <VenueDetails />,
         errorElement: <Error />,
       },
@@ -60,21 +65,32 @@ const router = createBrowserRouter([
         path: "/login",
         element: <LoginPage/>,
         errorElement: <Error />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp/>,
+        errorElement: <Error />,
+      },
+      {
+        path: "/profile",
+        element: <Profile/>,
+        errorElement: <Error />,
+      },
+      {
+        path: "/upcomingEvent",
+        element: <UpComingEvent/>,
+        errorElement: <Error />,
       }
-      
     ],
     
   },
-  // {
-  //   path: "/login",
-  //   element: <LoginPage/>,
-  //   errorElement: <Error />,
-  // }
  
 ]);
 
 root.render(
   <NetworkProvider>
+  <AuthProvider> {/* Wrap with AuthProvider */}
     <RouterProvider router={router} />
-  </NetworkProvider>
+  </AuthProvider>
+</NetworkProvider>
 );
