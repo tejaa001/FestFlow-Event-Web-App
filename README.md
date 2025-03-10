@@ -1,6 +1,6 @@
-# OccasionVerse Event Web App
+# FestFlow Event Web App
 
-OccasionVerse is a web application for managing events. This project is built using React.
+FestFlow is a web application for managing events. This project is built using React.
 
 ## Features
 
@@ -26,4 +26,4 @@ OccasionVerse is a web application for managing events. This project is built us
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/tejaa001/OccasionVerse-Event-Web-App-.git
+   git clone https://github.com/tejaa001/FestFlow-Event-Web-App.git
