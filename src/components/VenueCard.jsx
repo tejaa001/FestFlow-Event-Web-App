@@ -10,11 +10,11 @@ const VenueCard = ({ name, address, description, amenities,img, venueId ,onClick
       </div>
       <div className="Venue-details-container">
         <span>Venue : <span>{name}</span> </span> 
-        <span>Address :</span> {address}
+        {/* <span>Address :</span> {address}
         <br />
         <span>Description :</span>
         {trimed_description}...
-        <br />
+        <br /> */}
         <div className="amenities-box">
           {amenities.map((element) => {
             return <span className="amenities">{element.name}</span>;

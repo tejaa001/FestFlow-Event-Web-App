@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaMapMarkerAlt, FaInfoCircle, FaPhone, FaBook, FaUser, FaUserPlus, FaSignOutAlt,FaCalendarAlt } from "react-icons/fa";
 import { AuthContext } from "../contex/AuthContext";
+// import logo from '../Logo.png'; 
 
 const Header = ({ onSearchClick }) => {
   const { logdata, setlogData, path, setPath } = useContext(AuthContext);
@@ -12,8 +13,13 @@ const Header = ({ onSearchClick }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
+
+  let accessToken = localStorage.getItem("accessToken");
+  if (accessToken != null) {
+    accessToken = true
+  }
   useEffect(() => {
-    if (logdata === "Logout") {
+    if (logdata === "Logout" || accessToken) {
       setIsLogin(true);
       setProfile("Profile");
     } else {
@@ -21,6 +27,7 @@ const Header = ({ onSearchClick }) => {
       setProfile("");
     }
   }, [logdata]);
+
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -34,7 +41,10 @@ const Header = ({ onSearchClick }) => {
   const handleLogoutClick = () => {
     setlogData("Login")
     setDropdownOpen(false);
+    accessToken = false
+    localStorage.clear();
   };
+  
   return (
     <div className="container">
       <div className="navabr-container">

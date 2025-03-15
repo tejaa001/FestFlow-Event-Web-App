@@ -89,7 +89,7 @@ const router = createBrowserRouter([
 
 root.render(
   <NetworkProvider>
-  <AuthProvider> {/* Wrap with AuthProvider */}
+  <AuthProvider>
     <RouterProvider router={router} />
   </AuthProvider>
 </NetworkProvider>

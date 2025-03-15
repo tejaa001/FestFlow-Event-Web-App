@@ -22,8 +22,6 @@ const VenuePage = () => {
     let VenueData = await Data.json();
     SetVenueData(VenueData.data.rows);
     setFilterDataEvent(VenueData.data.rows);
-
-
   };
 
   const onCardClick = (venueId) => {
@@ -36,15 +34,11 @@ const VenuePage = () => {
     });
     setFilterDataEvent(filterData);
   };
-  // console.log("filterDataEvent",filterDataEvent);
 
   return (
     <>
       <div className="card-page">
         {filterDataEvent.length == 0 ? <div class="loader"></div> : filterDataEvent.map((item) => {
-          // console.log(item.id);
-
-
           return (
             <VenueCard
               name={item.name}
